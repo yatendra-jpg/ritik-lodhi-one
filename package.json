@@ -1,9 +1,12 @@
 {
-  "name": "safe-mail-sender",
+  "name": "ritik-lodhi-one",
   "version": "1.0.0",
-  "type": "module",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
-    "express": "^4.19.2",
-    "nodemailer": "^6.9.9"
+    "express": "^4.19.2"
   }
 }
