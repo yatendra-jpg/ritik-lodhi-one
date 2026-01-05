@@ -1,13 +1,13 @@
 const btn = document.getElementById("sendBtn");
-const count = document.getElementById("count");
+const countBox = document.getElementById("count");
 
 btn.onclick = async () => {
   btn.disabled = true;
   btn.innerText = "Sending...";
 
-  const r = await fetch("/send",{
+  const res = await fetch("/send",{
     method:"POST",
-    headers:{"Content-Type":"application/json"},
+    headers:{ "Content-Type":"application/json" },
     body:JSON.stringify({
       senderName:senderName.value,
       gmail:gmail.value,
@@ -18,13 +18,12 @@ btn.onclick = async () => {
     })
   });
 
-  const d = await r.json();
+  const data = await res.json();
   btn.disabled = false;
   btn.innerText = "Send All";
+  countBox.innerText = `${data.count || 0}/28`;
 
-  if(!d.success) return alert(d.msg);
-  count.innerText = `${d.count}/28`;
-  alert("Mail Sent ✅");
+  alert(data.success ? "Mail Send Successful ✅" : data.msg);
 };
 
 function logout(){
