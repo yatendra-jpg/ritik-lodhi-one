@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Secure Mail Console</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>
+if(!localStorage.getItem("auth")) location.href="/";
+</script>
+
+<div class="card">
+  <h2>Secure Mail Console</h2>
+
+  <div class="grid">
+    <input id="senderName" placeholder="Sender Name">
+    <input id="gmail" placeholder="Your Gmail">
+    <input id="apppass" type="password" placeholder="App Password">
+    <input id="subject" placeholder="Email Subject">
+    <textarea id="message" placeholder="Message Body"></textarea>
+    <textarea id="to" placeholder="Recipients (comma / new line)"></textarea>
+  </div>
+
+  <div class="buttons">
+    <button id="sendBtn">Send All</button>
+    <button ondblclick="logout()">Logout</button>
+  </div>
+
+  <div id="count">0/28</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
